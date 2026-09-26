@@ -7,8 +7,8 @@ abstract class BudgetRepository {
 }
 
 class MockBudgetRepository implements BudgetRepository {
-  double _monthlyIncome = 125000;
-  double _totalAllocatedToGoals = 50000;
+  final double _monthlyIncome = 125000;
+  final double _totalAllocatedToGoals = 50000;
 
   final List<TransactionModel> _transactions = [
     TransactionModel(

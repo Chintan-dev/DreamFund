@@ -3,76 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTheme {
-  static ThemeData get lightTheme {
-    final baseTextTheme = GoogleFonts.interTextTheme();
-
-    return ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.light,
-      primaryColor: AppColors.primary,
-      scaffoldBackgroundColor: AppColors.lightBackground,
-      colorScheme: const ColorScheme.light(
-        primary: AppColors.primary,
-        secondary: AppColors.secondary,
-        surface: AppColors.lightSurface,
-        error: AppColors.error,
-        onPrimary: Colors.white,
-        onSecondary: Colors.white,
-        onSurface: AppColors.lightTextPrimary,
-      ),
-      textTheme: baseTextTheme.copyWith(
-        displayLarge: baseTextTheme.displayLarge?.copyWith(
-          color: AppColors.lightTextPrimary,
-          fontWeight: FontWeight.bold,
-        ),
-        titleLarge: baseTextTheme.titleLarge?.copyWith(
-          color: AppColors.lightTextPrimary,
-          fontWeight: FontWeight.bold,
-        ),
-        bodyLarge: baseTextTheme.bodyLarge?.copyWith(
-          color: AppColors.lightTextPrimary,
-        ),
-        bodyMedium: baseTextTheme.bodyMedium?.copyWith(
-          color: AppColors.lightTextSecondary,
-        ),
-      ),
-      cardTheme: CardThemeData(
-        color: AppColors.lightSurface,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: AppColors.lightCardBorder, width: 1),
-        ),
-      ),
-      appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.lightSurface,
-        elevation: 0,
-        centerTitle: false,
-        scrolledUnderElevation: 0.5,
-        iconTheme: const IconThemeData(color: AppColors.lightTextPrimary),
-        titleTextStyle: GoogleFonts.inter(
-          color: AppColors.lightTextPrimary,
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: AppColors.lightSurface,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.lightTextSecondary,
-        type: BottomNavigationBarType.fixed,
-        elevation: 8,
-      ),
-      navigationRailTheme: const NavigationRailThemeData(
-        backgroundColor: AppColors.lightSurface,
-        selectedIconTheme: IconThemeData(color: AppColors.primary),
-        unselectedIconTheme: IconThemeData(color: AppColors.lightTextSecondary),
-        selectedLabelTextStyle: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold),
-        unselectedLabelTextStyle: TextStyle(color: AppColors.lightTextSecondary),
-      ),
-    );
-  }
-
   static ThemeData get darkTheme {
     final baseTextTheme = GoogleFonts.interTextTheme(ThemeData.dark().textTheme);
 
@@ -88,22 +18,23 @@ class AppTheme {
         error: AppColors.error,
         onPrimary: Colors.white,
         onSecondary: Colors.white,
-        onSurface: AppColors.darkTextPrimary,
+        onSurface: AppColors.textPrimary,
       ),
       textTheme: baseTextTheme.copyWith(
         displayLarge: baseTextTheme.displayLarge?.copyWith(
-          color: AppColors.darkTextPrimary,
+          color: AppColors.textPrimary,
           fontWeight: FontWeight.bold,
+          letterSpacing: -1.0,
         ),
         titleLarge: baseTextTheme.titleLarge?.copyWith(
-          color: AppColors.darkTextPrimary,
+          color: AppColors.textPrimary,
           fontWeight: FontWeight.bold,
         ),
         bodyLarge: baseTextTheme.bodyLarge?.copyWith(
-          color: AppColors.darkTextPrimary,
+          color: AppColors.textPrimary,
         ),
         bodyMedium: baseTextTheme.bodyMedium?.copyWith(
-          color: AppColors.darkTextSecondary,
+          color: AppColors.textSecondary,
         ),
       ),
       cardTheme: CardThemeData(
@@ -115,31 +46,51 @@ class AppTheme {
         ),
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.darkSurface,
+        backgroundColor: AppColors.darkBackground,
         elevation: 0,
         centerTitle: false,
-        scrolledUnderElevation: 0.5,
-        iconTheme: const IconThemeData(color: AppColors.darkTextPrimary),
+        scrolledUnderElevation: 0,
+        iconTheme: const IconThemeData(color: AppColors.textPrimary),
         titleTextStyle: GoogleFonts.inter(
-          color: AppColors.darkTextPrimary,
+          color: AppColors.textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
       ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.darkSurface,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.darkCardBorder),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.darkCardBorder),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
+        ),
+        labelStyle: const TextStyle(color: AppColors.textSecondary),
+      ),
+      chipTheme: ChipThemeData(
         backgroundColor: AppColors.darkSurface,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.darkTextSecondary,
-        type: BottomNavigationBarType.fixed,
-        elevation: 8,
+        selectedColor: AppColors.primary,
+        side: const BorderSide(color: AppColors.darkCardBorder),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        labelStyle: const TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.w600),
       ),
       navigationRailTheme: const NavigationRailThemeData(
         backgroundColor: AppColors.darkSurface,
         selectedIconTheme: IconThemeData(color: AppColors.primary),
-        unselectedIconTheme: IconThemeData(color: AppColors.darkTextSecondary),
+        unselectedIconTheme: IconThemeData(color: AppColors.textSecondary),
         selectedLabelTextStyle: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold),
-        unselectedLabelTextStyle: TextStyle(color: AppColors.darkTextSecondary),
+        unselectedLabelTextStyle: TextStyle(color: AppColors.textSecondary),
       ),
     );
   }
+
+  static ThemeData get lightTheme => darkTheme; // Default to dark glassmorphic Shadcn UI theme
 }
